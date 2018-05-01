@@ -1,8 +1,9 @@
 
+// Listens to click, replaces the choices with stats of what people chose
+document.getElementById('choiceOne').addEventListener('click', showStats)
 
-document.getElementById('choiceOne').addEventListener('click', answered)
-
-function answered() {
+// the Stat swap function
+function showStats() {
     
     document.getElementById('choiceOne').innerHTML = '1st%';
 
