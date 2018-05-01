@@ -3,3 +3,10 @@
 # Useful .gitignore templates: https://github.com/github/gitignore
 
 /node_modules
+css/site\.css
+
+css/
+
+js/site.js
+
+js/site\.min\.js

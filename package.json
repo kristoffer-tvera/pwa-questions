@@ -2,7 +2,6 @@
   "name": "pwa-questions",
   "version": "1.0.0",
   "description": "This-or-that game",
-  "main": "index.js",
   "devDependencies": {
     "autoprefixer": "^8.4.1",
     "node-sass": "^4.9.0",

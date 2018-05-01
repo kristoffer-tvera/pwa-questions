@@ -1,0 +1,15 @@
+.gameChoices {
+    background-color: blue;
+
+    &__container {
+        background-color: red;
+    }
+
+    &__button {
+        background-color: green;
+        &--text{
+            background-color: yellow;
+
+        }
+    }
+}
