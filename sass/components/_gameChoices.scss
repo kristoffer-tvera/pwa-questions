@@ -7,9 +7,17 @@
 
     &__button {
         background-color: green;
+        padding: 5px;
         &--text{
             background-color: yellow;
+            text-align: center;
+            width: 200px;
+            height: 200px;
 
+        }
+        &--submitBtn{
+            background-color: #279;
+            text-align: center;
         }
     }
 }
