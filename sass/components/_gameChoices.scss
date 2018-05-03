@@ -3,21 +3,29 @@
 
     &__container {
         background-color: red;
+        margin: auto;
+        width: 50%;
     }
 
     &__button {
         background-color: green;
         padding: 5px;
+        margin: auto;
+
         &--text{
             background-color: yellow;
             text-align: center;
-            width: 200px;
+            margin-left: 25%;
+            width: 50%;
             height: 200px;
 
         }
+
         &--submitBtn{
             background-color: #279;
             text-align: center;
+            margin-left: 25%;
+            width: 50%;
         }
     }
 }
