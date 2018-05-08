@@ -9,8 +9,8 @@
 //  include 'php/question.php';
 //  $question1 = new Question("Food", "Pepperoni", 0, "Salami", 5);
 
-echo json_encode(Get_question_random());
-//  echo Add_question("Pepperoni", "Salami", "Food");
+ echo json_encode(Get_question_random());
+ //echo Add_question("Lifting", "Running", "Sports");
  ?>
  </body>
 </html>

@@ -37,10 +37,10 @@ function Add_question($alt1, $alt2, $category){
     $sql = "INSERT INTO $dbtable_questions (category, first_alternative, second_alternative, created_at) VALUES ('" . strtolower( strval( $category ) ). "', '". strval( $alt1 ) . "', '". strval( $alt2 ) . "', now())";
     
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
+        //echo "New record created successfully";
         return true;
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        //echo "Error: " . $sql . "<br>" . $conn->error;
         return false;
     }
     $conn->close();
@@ -55,95 +55,37 @@ function Question_vote($questionId, $first){
         die("Connection failed: " . $conn->connect_error);
     } 
     
-    if(boolval($bool)){
+    if(boolval($first)){
         $sql = "UPDATE $dbtable_questions SET first_alternative_count = first_alternative_count + 1 WHERE id = '". intval($questionId) ."'";
     } else {
         $sql = "UPDATE $dbtable_questions SET second_alternative_count = second_alternative_count + 1 WHERE id = '". intval($questionId) ."'";
     }
     
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
+        //echo "Successfully updated";
         return true;
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        //echo "Error: " . $sql . "<br>" . $conn->error;
         return false;
     }
     $conn->close();
 }
 
-function Get_question_by_id($id){
-    // require 'question.php';
-    // require 'db_config.php';
-    // // Create connection
-    // $conn = new mysqli($servername, $username, $password, $dbname);
-    // // Check connection
-    // if ($conn->connect_error) {
-    //     die("Connection failed: " . $conn->connect_error);
-    // } 
-    
+function Get_question_by_id($id){ 
+    require 'db_config.php';  
     $sql = "SELECT * FROM `$dbtable_questions` WHERE id = '" . intval($id) . "'";
     return Get_single_question($sql);
-
-    // $result = $conn->query($sql);
-    // $conn->close();
-    
-    // if ($result->num_rows > 0) {
-    //     // output data of each row
-    //     while($row = $result->fetch_assoc()) {
-    //         return new Question($row["category"], $row["first_alternative"], $row["first_alternative_count"], $row["second_alternative"], $row["second_alternative_count"]);
-    //     }
-    // } else {
-    //     return NULL;
-    // }
 }
 function Get_question_by_category($category){
-    // require 'question.php';
-    // require 'db_config.php';
-    // // Create connection
-    // $conn = new mysqli($servername, $username, $password, $dbname);
-    // // Check connection
-    // if ($conn->connect_error) {
-    //     die("Connection failed: " . $conn->connect_error);
-    // } 
-    
-    $sql = "SELECT * FROM `$dbtable_questions` WHERE category = '". strtolower( strval( $category ) ) ."'  id >= (SELECT FLOOR( MAX(id) * RAND()) FROM `$dbtable_questions` ) ORDER BY id LIMIT 1;";
+    require 'db_config.php'; 
+    $sql = "SELECT * FROM `$dbtable_questions` WHERE category = '". strtolower( strval( $category ) ) ."' AND  id >= (SELECT FLOOR( MAX(id) * RAND()) FROM `$dbtable_questions` WHERE category = '". strtolower( strval( $category ) ) ."') ORDER BY id LIMIT 1;";
     return Get_single_question($sql);
-    // $result = $conn->query($sql);
-    // $conn->close();
-    
-    // if ($result->num_rows > 0) {
-    //     // output data of each row
-    //     while($row = $result->fetch_assoc()) {
-    //         return new Question($row["category"], $row["first_alternative"], $row["first_alternative_count"], $row["second_alternative"], $row["second_alternative_count"]);
-    //     }
-    // } else {
-    //     return NULL;
-    // }
 }
 
 function Get_question_random(){
-    // require 'question.php';
-    // require 'db_config.php';
-    // // Create connection
-    // $conn = new mysqli($servername, $username, $password, $dbname);
-    // // Check connection
-    // if ($conn->connect_error) {
-    //     die("Connection failed: " . $conn->connect_error);
-    // } 
-    
+    require 'db_config.php';  
     $sql = "SELECT * FROM `$dbtable_questions` WHERE id >= (SELECT FLOOR( MAX(id) * RAND()) FROM `$dbtable_questions` ) ORDER BY id LIMIT 1;";
     return Get_single_question($sql);
-    // $result = $conn->query($sql);
-    // $conn->close();
-    
-    // if ($result->num_rows > 0) {
-    //     // output data of each row
-    //     while($row = $result->fetch_assoc()) {
-    //         return new Question($row["category"], $row["first_alternative"], $row["first_alternative_count"], $row["second_alternative"], $row["second_alternative_count"]);
-    //     }
-    // } else {
-    //     return NULL;
-    // }
 }   
 
 function Get_single_question($sql){
@@ -157,14 +99,15 @@ function Get_single_question($sql){
     } 
     
     $result = $conn->query($sql);
-    $conn->close();
     
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
+            $conn->close();
             return new Question($row["category"], $row["first_alternative"], $row["first_alternative_count"], $row["second_alternative"], $row["second_alternative_count"]);
         }
     } else {
+        $conn->close();
         return NULL;
     }
 }
