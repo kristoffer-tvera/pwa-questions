@@ -22,11 +22,12 @@
 
     $id = intval($id); //cast to int to make sure we dont goofd
     
-    $first = boolval($data->first);
+    $first = filter_var($data->first, FILTER_VALIDATE_BOOLEAN);
+
     if(empty($data->first)){
         array_push($errorList, "First choice is a required field ('first'), bool");
     }
-    echo $first;
+    
     if(!empty($errorList)){
         http_response_code(400);
         echo json_encode($errorList);

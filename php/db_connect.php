@@ -48,26 +48,24 @@ function Add_question($alt1, $alt2, $category){
 
 function Question_vote($questionId, $first){
     require 'db_config.php';
-    // Create connection
+
     $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
+
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     } 
     
-    if(boolval($first)){
+    if($first){
         $sql = "UPDATE $dbtable_questions SET first_alternative_count = first_alternative_count + 1 WHERE id = '". intval($questionId) ."'";
     } else {
         $sql = "UPDATE $dbtable_questions SET second_alternative_count = second_alternative_count + 1 WHERE id = '". intval($questionId) ."'";
     }
-    
     if ($conn->query($sql) === TRUE) {
-        //echo "Successfully updated";
         return true;
     } else {
-        //echo "Error: " . $sql . "<br>" . $conn->error;
         return false;
     }
+
     $conn->close();
 }
 
