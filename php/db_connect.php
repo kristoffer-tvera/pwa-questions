@@ -78,13 +78,13 @@ function Get_question_by_id($id){
 }
 function Get_question_by_category($category){
     require 'db_config.php'; 
-    $sql = "SELECT * FROM `$dbtable_questions` WHERE category = '". strtolower( strval( $category ) ) ."' AND  id >= (SELECT FLOOR( MAX(id) * RAND()) FROM `$dbtable_questions` WHERE category = '". strtolower( strval( $category ) ) ."') ORDER BY id LIMIT 1;";
+    $sql = "SELECT * FROM `$dbtable_questions` WHERE category = '". strtolower( strval( $category ) ) ."' ORDER BY RAND() LIMIT 1;";
     return Get_single_question($sql);
 }
 
 function Get_question_random(){
     require 'db_config.php';  
-    $sql = "SELECT * FROM `$dbtable_questions` WHERE id >= (SELECT FLOOR( MAX(id) * RAND()) FROM `$dbtable_questions` ) ORDER BY id LIMIT 1;";
+    $sql = "SELECT * FROM `$dbtable_questions` ORDER BY RAND() LIMIT 1;";
     return Get_single_question($sql);
 }   
 
