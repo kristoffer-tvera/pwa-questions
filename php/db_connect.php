@@ -86,6 +86,28 @@ function Get_question_random(){
     return Get_single_question($sql);
 }   
 
+function Delete_question($id){
+    require 'db_config.php';  
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
+
+    $sql = "DELETE FROM `$dbtable_questions` WHERE id = '" . intval($id) . "'";
+    
+    $result = $conn->query($sql);
+    
+    if ($result === TRUE) {
+        $conn->close();
+        return true;
+    } else {
+        $conn->close();
+        return false;
+    }
+} 
+
 function Get_single_question($sql){
     require 'question.php';
     require 'db_config.php';
