@@ -2,7 +2,8 @@
 
 ## Endpoints
 ### /api/questions/read.php
-#### GET
+> GET
+
 Returns a random question in the following json format:
 ```json
 {
@@ -15,7 +16,8 @@ Returns a random question in the following json format:
 ```
 
 ### /api/questions/read_by_category.php
-#### GET
+> GET
+
 Takes a category as a query string parameter, example:
 
 /api/questions/read_by_category.php __?category=sport__
@@ -32,7 +34,7 @@ Returns a random question within the given category in the following json format
 ```
 
 ### /api/questions/read_by_id.php
-#### GET
+> GET
 
 Takes a id as a query string parameter, example:
 
@@ -49,8 +51,9 @@ Returns the corresponding question in the following json format:
 }
 ```
 
-###/api/questions/update.php
-#### Post
+### /api/questions/update.php
+> Post
+
 Used to vote on a question, accepts json in the following format in post body:
 ```json
 {
@@ -60,8 +63,9 @@ Used to vote on a question, accepts json in the following format in post body:
 ```
 
 
-###/api/questions/create.php
-#### Post
+### /api/questions/create.php
+> Post
+
 Used to create a new question, accepts json in the following format in the post body:
 ```json
 {
@@ -72,8 +76,9 @@ Used to create a new question, accepts json in the following format in the post 
 ```
 
 
-###/api/questions/delete.php
-#### Delete
+### /api/questions/delete.php
+> Delete
+
 Used to delete a question, accepts json in the following format in the post body:
 ```json
 {
