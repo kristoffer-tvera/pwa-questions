@@ -49,11 +49,9 @@ module.exports = function (grunt) {
 
         // Browser Sync integration
         browserSync: {
-            bsFiles: ["js/*.js", "css/*.css", "!**/node_modules/**/*"],
+            bsFiles: ["js/*.js", "css/*.css", "./*.php", "!**/node_modules/**/*"],
             options: {
-                server: {
-                    baseDir: "./" // make server from root dir
-                },
+                proxy: '127.0.0.1:8010',
                 port: 8000,
                 ui: {
                     port: 8080,
@@ -61,7 +59,16 @@ module.exports = function (grunt) {
                         port: 9090
                     }
                 },
-                open: false
+                open: true
+            }
+        },
+
+        php: {
+            dev: {
+                options: {
+                    port: 8010,
+                    base: './'
+                }
             }
         },
 
@@ -147,7 +154,7 @@ module.exports = function (grunt) {
             monitor: {
                 tasks: ["sass_compile", "watch:sass",
                     "js_compile", "watch:js",
-                    "notify:watching", 'server']
+                    "notify:watching", 'php', 'server']
             },
         },
 
@@ -198,6 +205,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-notify');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-browser-sync');
+    grunt.loadNpmTasks('grunt-php');
 
     // define the tasks
     grunt.registerTask(
@@ -214,6 +222,6 @@ module.exports = function (grunt) {
 
     grunt.registerTask('js_compile', ['concat:dist', 'uglify:dist']);
     grunt.registerTask('sass_compile', ['sass:expanded', 'sass:min', 'notify:sass_compile']);
-    grunt.registerTask('server', ['browserSync', 'notify:server']);
+    grunt.registerTask('server', ['php', 'browserSync', 'notify:server']);
     grunt.registerTask('monitor', ["concurrent:monitor"]);
 };
