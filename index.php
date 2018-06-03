@@ -15,27 +15,38 @@
 </head>
 
 <body>
-    <div class="gameChoices__container">
-        <div class="gameChoices__background">
+
+
+<div class="gameChoices__container" id="mainContainer">
+            <div class="gameChoices__background">
             <button class="gameChoices__background--button" id="choiceOne">
                 <h1>Placeholder Text For Choice 1</h1>
             </button>
-        </div>
-        <div class="gameChoices__background">
+            </div>
+            <div class="gameChoices__background">
             <button class="gameChoices__background--button" id="choiceTwo">
                 <h1>Placeholder Text For Choice 2</h1>
             </button>
-        </div>
+            </div>
 
-        <div class="bottomBar">
+         <div class="bottomBar">
             <a href='questionCreator.html' target='_blank' class="bottomBar__menuBtn">
                 <h5>Make your own!</h5>
             </a>
-            <a class="bottomBar__menuBtn">
-                <h5>Categories</h5>
+            <a class="bottomBar__menuBtn" id="menuBtn" onclick="openMenu()">
+                <h5>Menu</h5>
             </a>
         </div>
-    </div>
+</div>
+
+    <div class="popMenu" id="mainMenu" onload="hideMenu()">
+        <div class="popMenu__options"><h4>Menu One</h4></div>
+        <div class="popMenu__options"><h4>Menu One</h4></div>
+        <div class="popMenu__options"><h4>Menu One</h4></div>
+        <div class="popMenu__options"><h4>Menu One</h4></div>
+        <div class="popMenu__options"><h4>Menu One</h4></div>
+</div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
