@@ -40,15 +40,13 @@
 .bottomBar {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-
-
+    justify-content: center;
+    
     &__menuBtn{
         background-color: #279;
         text-align: center;
-        width: 48%;
+        width: 50%;
         text-decoration: none;
-        justify-content: space-between;
     }
 }
 

@@ -30,8 +30,6 @@
             </div>
 
          <div class="bottomBar">
-            <a href='questionCreator.html' target='_blank' class="bottomBar__menuBtn">
-                <h5>Make your own!</h5>
             </a>
             <a class="bottomBar__menuBtn" id="menuBtn" onclick="openMenu()">
                 <h5>Menu</h5>
@@ -39,12 +37,12 @@
         </div>
 </div>
 
-    <div class="popMenu" id="mainMenu" onload="hideMenu()">
-        <div class="popMenu__options"><h4>Menu One</h4></div>
-        <div class="popMenu__options"><h4>Menu One</h4></div>
-        <div class="popMenu__options"><h4>Menu One</h4></div>
-        <div class="popMenu__options"><h4>Menu One</h4></div>
-        <div class="popMenu__options"><h4>Menu One</h4></div>
+    <div class="popMenu" id="mainMenu">
+        <div class="popMenu__options"><h4>Ask a Question!</h4></div>
+        <div class="popMenu__options"><h4>My Questions</h4></div>
+        <div class="popMenu__options"><h4>Categories</h4></div>
+        <div class="popMenu__options"><h4>Friends</h4></div>
+        <div class="popMenu__options"><h4>Options</h4></div>
 </div>
 
     <!-- Optional JavaScript -->
