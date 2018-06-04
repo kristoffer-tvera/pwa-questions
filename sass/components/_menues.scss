@@ -5,12 +5,14 @@ display: none;
 flex-direction: column;
 position: absolute;
 top: 0;
-bottom: 32px;
+bottom: 50px;
 right: 0;
 left: 0;
 
 @media (min-width: 600px) {
     width: 50%;
+    margin: auto;
+
     }
 
     &__options {
@@ -18,7 +20,10 @@ left: 0;
         color: white;
         border: 4px;
         margin: 5px;
-        
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        display: flex;
         
     }
 }   
@@ -35,6 +40,7 @@ left: 0;
         width: 50%;
         text-decoration: none;
         margin-bottom: 5px;
+        cursor: pointer;
     }
 }
 

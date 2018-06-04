@@ -23,7 +23,6 @@ function openMenu() {
 var xmlhttp = new XMLHttpRequest(),
     method = 'GET',
     url = 'http://localhost:8000/api/questions/read.php';
-console.log(url);
 
 xmlhttp.open(method, url, true);
 xmlhttp.onload = function questions() {
@@ -31,14 +30,10 @@ xmlhttp.onload = function questions() {
     var response = JSON.parse(this.responseText);
     var altOne = response.first_alternative;
     var altOneScore = response.first_alternative_score;
-    console.log(altOne);
-    console.log(altOneScore);
     var altTwo = response.second_alternative;
     var altTwoScore = response.second_alternative_score;
-    console.log(altTwo);
-    console.log(altTwoScore);
     var category = response.category;
-    console.log(category);
+
 
 
 

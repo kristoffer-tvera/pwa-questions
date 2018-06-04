@@ -19,14 +19,14 @@
 
 <div class="gameChoices__container" id="mainContainer">
             <div class="gameChoices__background">
-            <button class="gameChoices__background--button h1" id="choiceOne">
+            <a class="gameChoices__background--button h1" id="choiceOne">
                 <h1 id='altOne'></h1>
-            </button>
+            </a>
             </div>
             <div class="gameChoices__background">
-            <button class="gameChoices__background--button h1" id="choiceTwo">
+            <a class="gameChoices__background--button h1" id="choiceTwo">
                 <h1 id='altTwo'></h1>
-            </button>
+            </a>
             </div>
 
          <div class="bottomBar">
