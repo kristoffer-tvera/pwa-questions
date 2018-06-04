@@ -19,13 +19,13 @@
 
 <div class="gameChoices__container" id="mainContainer">
             <div class="gameChoices__background">
-            <button class="gameChoices__background--button" id="choiceOne">
-                <h1>Placeholder Text For Choice 1</h1>
+            <button class="gameChoices__background--button h1" id="choiceOne">
+                <h1 id='altOne'></h1>
             </button>
             </div>
             <div class="gameChoices__background">
-            <button class="gameChoices__background--button" id="choiceTwo">
-                <h1>Placeholder Text For Choice 2</h1>
+            <button class="gameChoices__background--button h1" id="choiceTwo">
+                <h1 id='altTwo'></h1>
             </button>
             </div>
 
