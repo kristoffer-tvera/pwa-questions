@@ -131,5 +131,33 @@ function Get_single_question($sql){
         return NULL;
     }
 }
+
+function Get_category_list(){
+    require 'question.php';
+    require 'db_config.php';
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
+    
+    $sql = "SELECT DISTINCT category FROM `$dbtable_questions`;";
+
+    $result = $conn->query($sql);
+    
+    $categories = array();
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            array_push($categories, $row["category"]);
+        }
+    }
+    
+    $conn->close();
+
+    return $categories;
+}
     
 ?>
