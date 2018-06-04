@@ -85,3 +85,14 @@ Used to delete a question, accepts json in the following format in the post body
     "id": "<question id>",
 }
 ```
+
+
+## Meta-data endpoints
+
+### /api/questions/read_categories.php
+> Get
+
+Returns a list of all the current categories in the following json format:
+```json
+    ["category1", "category2", "category3"]
+```
