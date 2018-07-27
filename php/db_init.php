@@ -11,7 +11,7 @@ function Initialize_database(){
     } 
     
     // Create database
-    $sql = "CREATE DATABASE IF NOT EXISTS pwa_questions";
+    $sql = "CREATE DATABASE IF NOT EXISTS " . $dbname;
     if ($conn->query($sql) === TRUE) {
         echo "Database created successfully";
         return true;
