@@ -1,0 +1,14 @@
+.bottomBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    &__menuBtn{
+        background-color: #279;
+        text-align: center;
+        width: 50%;
+        text-decoration: none;
+        margin-bottom: 5px;
+        cursor: pointer;
+    }
+}
