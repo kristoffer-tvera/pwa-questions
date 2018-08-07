@@ -19,12 +19,12 @@
 
 <div class="gameChoices__container" id="mainContainer">
             <div class="gameChoices__background">
-            <a class="gameChoices__background--button h1" id="choiceOne">
+            <a class="button__one h1" id="choiceOne">
                 <h1 id='altOne'></h1>
             </a>
             </div>
             <div class="gameChoices__background">
-            <a class="gameChoices__background--button h1" id="choiceTwo">
+            <a class="button__two h1" id="choiceTwo">
                 <h1 id='altTwo'></h1>
             </a>
             </div>
@@ -39,9 +39,9 @@
 
     <div class="popMenu" id="mainMenu">
         <div class="popMenu__options"><h4>Ask a Question!</h4></div>
-        <div class="popMenu__options"><h4>My Questions</h4></div>
+        <!-- <div class="popMenu__options"><h4>My Questions</h4></div> -->
         <div class="popMenu__options"><h4>Categories</h4></div>
-        <div class="popMenu__options"><h4>Friends</h4></div>
+        <!-- <div class="popMenu__options"><h4>Friends</h4></div> -->
         <div class="popMenu__options"><h4>Options</h4></div>
 </div>
 

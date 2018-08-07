@@ -1,0 +1,23 @@
+@mixin button() {
+    border-radius: 5%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.button{
+
+    &__one {
+        @include button();
+        background-color: #DC493A;
+        width: 100%;
+    }
+
+    &__two {
+        @include button();
+        background-color: #4392F1;
+        width: 100%;
+    }
+}
