@@ -31,8 +31,12 @@
 
          <div class="bottomBar">
             </a>
-            <a class="bottomBar__menuBtn" id="menuBtn" onclick="openMenu()">
+            <a class="bottomBtn__menu" id="menuBtn" onclick="openMenu()">
                 <h5>Menu</h5>
+            </a>
+            </a>
+            <a class="bottomBtn__next">
+                <h5>Next</h5>
             </a>
         </div>
 </div>
