@@ -35,7 +35,7 @@
                 <h5>Menu</h5>
             </a>
             </a>
-            <a class="bottomBtn__next">
+            <a class="bottomBtn__next" href="index.php">
                 <h5>Next</h5>
             </a>
         </div>

@@ -18,7 +18,7 @@ function openMenu() {
 
 
 
-// GETS random questions for user to vote on.
+// GET random spørsmål for brukerne.
 
 var xmlhttp = new XMLHttpRequest(),
     method = 'GET',
