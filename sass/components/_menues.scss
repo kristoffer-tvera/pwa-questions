@@ -1,6 +1,5 @@
-
 .popMenu {
-background-color: black;
+background-color: #F3DE8A;
 display: none;
 flex-direction: column;
 position: absolute;
@@ -16,10 +15,10 @@ left: 0;
     }
 
     &__options {
-        background-color: green;
+        background-color: #1282A2;
         color: white;
         border: 4px;
-        margin: 5px;
+        margin: 1px;
         flex: 1;
         align-items: center;
         justify-content: center;
@@ -28,19 +27,4 @@ left: 0;
     }
 }   
 
-
-.bottomBar {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    
-    &__menuBtn{
-        background-color: #279;
-        text-align: center;
-        width: 50%;
-        text-decoration: none;
-        margin-bottom: 5px;
-        cursor: pointer;
-    }
-}
 
