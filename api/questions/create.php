@@ -11,19 +11,22 @@
 
     $errorList = array();
 
-    $category = $data->category;
+    // $category = $data->category;
+    $category = $_POST["category"];
     $category = htmlspecialchars(strip_tags($category));
     if(IsNullOrEmptyString($category)){
         array_push($errorList, "Category is a required field ('category'), str");
     }
     
-    $first = $data->first;
+    // $first = $data->first;
+    $first = $_POST["first"];
     $first = htmlspecialchars(strip_tags($first));
     if(IsNullOrEmptyString($first)){
         array_push($errorList, "First choice is a required field ('first'), str");
     }
 
-    $second = $data->second;
+    // $second = $data->second;
+    $second = $_POST["second"];
     $second = htmlspecialchars(strip_tags($second));
     if(IsNullOrEmptyString($second)){
         array_push($errorList, "Second choice is a required field ('second'), str");

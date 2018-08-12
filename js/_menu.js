@@ -11,6 +11,26 @@ function menuClose(sender){
     sender.parentElement.style.display = 'none';
 }
 
+function newQuestionFormSubmit(form){
+    form.style.display = 'none';
+    
+    var formData = new FormData(form);
+
+    var xhr = new XMLHttpRequest;
+    xhr.open('POST', './api/questions/create.php', true);
+    xhr.send(formData);
+
+    location.reload();
+    return false;
+}
+
+// var newQuestionForm = document.getElementById('xxx');
+// if (newQuestionForm.attachEvent) {
+//     newQuestionForm.attachEvent("submit", newQuestionFormSubmit);
+// } else {
+//     newQuestionForm.addEventListener("submit", newQuestionFormSubmit);
+// }
+
 function populateCategories(categorylist){
     var categoryListElement = document.querySelector('[data-category-list]');
     if(!categoryListElement){
