@@ -80,7 +80,8 @@ module.exports = function (grunt) {
             dist: {
                 // the files to concatenate
                 src: [
-                    "js/_site.js"
+                    "js/_site.js",
+                    "js/_menu.js"
                 ],
                 // the location of the resulting JS file
                 dest: 'js/site.js'
@@ -94,7 +95,8 @@ module.exports = function (grunt) {
 
                 },
                 src: [
-                    "js/_site.js"
+                    "js/_site.js",
+                    "js/_menu.js"
                 ],
                 // the location of the resulting JS file
                 dest: 'js/site.js'
