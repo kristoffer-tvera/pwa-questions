@@ -53,8 +53,8 @@
                 <h4>Send</h4>
             </a> -->
 
-            <button class="popMenu__options" type="submit">
-                Send
+            <button class="popMenu__options new-question__submit" type="submit">
+                <h4>Send</h4>
             </button>
 
             <a class="popMenu__options" onclick="menuClose(this)" href="#">
