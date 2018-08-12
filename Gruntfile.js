@@ -3,9 +3,9 @@ module.exports = function (grunt) {
     // configure the tasks
     var config = {
         //  Sass
-        sass: {                              // Task
-            expanded: {                            // Target
-                options: {                       // Target options
+        sass: {
+            expanded: {
+                options: {
                     outputStyle: 'expanded',
                     sourcemap: false,
                 },

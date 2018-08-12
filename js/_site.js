@@ -22,7 +22,7 @@ function openMenu() {
 
 var xmlhttp = new XMLHttpRequest(),
     method = 'GET',
-    url = '/api/questions/read.php';
+    url = './api/questions/read.php';
 
 xmlhttp.open(method, url, true);
 xmlhttp.onload = function questions() {
@@ -74,7 +74,7 @@ function postAnswer(id, first, firstScore, secondScore) {
     document.getElementById('choiceTwo').innerHTML = secondScore;
 
     var xhr = new XMLHttpRequest();
-    var url = "/api/questions/update.php";
+    var url = "./api/questions/update.php";
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
