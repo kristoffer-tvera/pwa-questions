@@ -11,9 +11,8 @@ function Initialize_database(){
     } 
     
     // Create database
-    $sql = "CREATE DATABASE IF NOT EXISTS pwa_questions";
+    $sql = "CREATE DATABASE IF NOT EXISTS " . $dbname;
     if ($conn->query($sql) === TRUE) {
-        echo "Database created successfully";
         return true;
     } else {
         echo "Error creating database: " . $conn->error;
@@ -52,5 +51,54 @@ function Initialize_tables(){
     }
 }
 
+
+function Seed_data($alt1, $alt2, $category){
+    require 'db_config.php';
+    
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
+    
+    $sql = "INSERT INTO $dbtable_questions (category, first_alternative, second_alternative, created_at) VALUES ('" . strtolower( strval( $category ) ). "', '". strval( $alt1 ) . "', '". strval( $alt2 ) . "', now())";
+    
+    if ($conn->query($sql) === TRUE) {
+        return true;
+    } else {
+        return false;
+    }
+    $conn->close(); //fuck does this do? we return before reaching this point
+}
+
+if(Initialize_database()){
+    echo "\nDB created successfully";
+} else {
+    echo "\nfailure in creating db";
+}
+
+if(Initialize_tables()){
+    echo "\nTables created successfully";
+} else {
+    echo "\nfailure in creating tables";
+}
+
+if(Seed_data("Fotball", "Tennis", "sport")){
+    echo "\nrandom data injected";
+} else {
+    echo "\nfailure in generating test data";
+}
+
+if(Seed_data("Beer", "Wine", "food")){
+    echo "\nrandom data injected";
+} else {
+    echo "failure in generating test data";
+}
+
+if(Seed_data("Samsung", "Apple", "technology")){
+    echo "\nrandom data injected";
+} else {
+    echo "\nfailure in generating test data";
+}
 
 ?>

@@ -5,9 +5,10 @@
     header("Access-Control-Max-Age: 3600");
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
     
-    include_once $_SERVER['DOCUMENT_ROOT'].'/php/db_connect.php';
+    include_once '../../php/db_connect.php';
 
-    $data = json_decode(file_get_contents("php://input"));
+    $data = json_decode(file_get_contents("php://input")); //fucking php will jsonparse bools to empty string.. 
+    //https://stackoverflow.com/questions/15081227/php-json-how-to-read-boolean-value-received-in-json-format-and-write-in-string-o
     $errorList = array();
 
     $id = $data->id;
@@ -22,12 +23,11 @@
 
     $id = intval($id); //cast to int to make sure we dont goofd
     
-    $first = filter_var($data->first, FILTER_VALIDATE_BOOLEAN);
-
-    if(empty($data->first)){
-        array_push($errorList, "First choice is a required field ('first'), bool");
+    $first = false;
+    if($data->first){
+        $first = true;
     }
-    
+
     if(!empty($errorList)){
         http_response_code(400);
         echo json_encode($errorList);

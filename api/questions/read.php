@@ -2,7 +2,7 @@
     header("Access-Control-Allow-Origin: *");
     header("Content-Type: application/json; charset=UTF-8");
 
-    include_once $_SERVER['DOCUMENT_ROOT'].'/php/db_connect.php';
+    include_once '../../php/db_connect.php';
 
     $question = Get_question_random();
 

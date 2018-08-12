@@ -3,11 +3,17 @@ body, html {
 }
 
 body {
-        background: linear-gradient(to bottom right, blue, red);
+        background-color: #1B4965;
 }
 
     
 h1, h2, h3, h4, h5, h6, .h1 {
     color: white;
+    text-align: center;
+}
+
+textarea {
+    width: 50%;
+    height: 50%;
     text-align: center;
 }

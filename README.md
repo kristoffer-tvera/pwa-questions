@@ -7,6 +7,7 @@
 Returns a random question in the following json format:
 ```json
 {
+    "id": "<question id>",
     "category": "sports",
     "first_alternative": "Lifting",
     "first_alternative_score": "4",
@@ -25,6 +26,7 @@ Takes a category as a query string parameter, example:
 Returns a random question within the given category in the following json format:
 ```json
 {
+    "id": "<question id>",
     "category": "sports",
     "first_alternative": "Lifting",
     "first_alternative_score": "4",
@@ -43,6 +45,7 @@ Takes a id as a query string parameter, example:
 Returns the corresponding question in the following json format:
 ```json
 {
+    "id": "<question id>",
     "category": "sports",
     "first_alternative": "Lifting",
     "first_alternative_score": "4",

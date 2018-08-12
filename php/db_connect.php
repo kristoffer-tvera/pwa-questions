@@ -37,10 +37,8 @@ function Add_question($alt1, $alt2, $category){
     $sql = "INSERT INTO $dbtable_questions (category, first_alternative, second_alternative, created_at) VALUES ('" . strtolower( strval( $category ) ). "', '". strval( $alt1 ) . "', '". strval( $alt2 ) . "', now())";
     
     if ($conn->query($sql) === TRUE) {
-        //echo "New record created successfully";
         return true;
     } else {
-        //echo "Error: " . $sql . "<br>" . $conn->error;
         return false;
     }
     $conn->close();
@@ -124,7 +122,7 @@ function Get_single_question($sql){
         // output data of each row
         while($row = $result->fetch_assoc()) {
             $conn->close();
-            return new Question($row["category"], $row["first_alternative"], $row["first_alternative_count"], $row["second_alternative"], $row["second_alternative_count"]);
+            return new Question($row["id"], $row["category"], $row["first_alternative"], $row["first_alternative_count"], $row["second_alternative"], $row["second_alternative_count"]);
         }
     } else {
         $conn->close();

@@ -1,0 +1,46 @@
+@mixin button() {
+    border-radius: 5%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.button{
+
+    &__one {
+        @include button();
+        background-color: #E84855;
+        width: 100%;
+    }
+
+    &__two {
+        @include button();
+        background-color: #4392F1;
+        width: 100%;
+    }
+}
+
+@mixin bottomBtn() {
+    border-radius: 2%;
+    margin: 2px;
+    text-align: center;
+    width: 48%;
+    text-decoration: none;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.bottomBtn{
+
+    &__next {
+        @include bottomBtn();
+        background-color: #5EFC8D;
+    }
+
+    &__menu {
+        @include bottomBtn();
+        background-color: #EF798A;
+    }
+}
