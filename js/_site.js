@@ -1,5 +1,3 @@
-
-
 // Skjuler menyen ved oppstart
 function hideMenu() {
     document.getElementById('mainMenu').style.display = 'none';
@@ -8,18 +6,9 @@ function hideMenu() {
 // Åpner menyen ved klikk
 function openMenu() {
     document.getElementById('mainMenu').style.display = 'flex';
-
 }
 
-
-
-
-
-
-
-
 // GET random spørsmål for brukerne.
-
 var xmlhttp = new XMLHttpRequest(),
     method = 'GET',
     url = './api/questions/read.php';
@@ -41,16 +30,10 @@ xmlhttp.onload = function questions() {
 
     var altTwoPercentage = (altTwoScore / altTotal) * 100;
 
-    console.log(altOnePercentage);
-
-    console.log(altTwoPercentage);
 
     // Elementene som blir vist til brukere
     document.getElementById('altOne').innerHTML = altOne;
     document.getElementById('altTwo').innerHTML = altTwo;
-
-
-
 
     // Hører etter clicks, for og så erstatte spørsmålet med statistikken
     document.getElementById('choiceOne').addEventListener('click', function (e) {
@@ -60,8 +43,6 @@ xmlhttp.onload = function questions() {
     document.getElementById('choiceTwo').addEventListener('click', function (e) {
         postAnswer(id, false, Math.round(altOnePercentage) + "%", Math.round(altTwoPercentage) + "%");
     });
-
-
 
 }
 
@@ -83,6 +64,9 @@ function postAnswer(id, first, firstScore, secondScore) {
             console.log(json.email + ", " + json.password);
         }
     };
-    var data = JSON.stringify({ "id": id, "first": first });
+    var data = JSON.stringify({
+        "id": id,
+        "first": first
+    });
     xhr.send(data);
 }
