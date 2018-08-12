@@ -22,7 +22,7 @@ function openMenu() {
 
 var xmlhttp = new XMLHttpRequest(),
     method = 'GET',
-    url = 'http://localhost:8000/api/questions/read.php';
+    url = '/api/questions/read.php';
 
 xmlhttp.open(method, url, true);
 xmlhttp.onload = function questions() {
