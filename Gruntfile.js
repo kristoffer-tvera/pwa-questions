@@ -3,9 +3,9 @@ module.exports = function (grunt) {
     // configure the tasks
     var config = {
         //  Sass
-        sass: {                              // Task
-            expanded: {                            // Target
-                options: {                       // Target options
+        sass: {
+            expanded: {
+                options: {
                     outputStyle: 'expanded',
                     sourcemap: false,
                 },
@@ -80,7 +80,8 @@ module.exports = function (grunt) {
             dist: {
                 // the files to concatenate
                 src: [
-                    "js/_site.js"
+                    "js/_site.js",
+                    "js/_menu.js"
                 ],
                 // the location of the resulting JS file
                 dest: 'js/site.js'
@@ -94,7 +95,8 @@ module.exports = function (grunt) {
 
                 },
                 src: [
-                    "js/_site.js"
+                    "js/_site.js",
+                    "js/_menu.js"
                 ],
                 // the location of the resulting JS file
                 dest: 'js/site.js'

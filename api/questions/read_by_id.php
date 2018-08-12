@@ -2,7 +2,7 @@
     header("Access-Control-Allow-Origin: *");
     header("Content-Type: application/json; charset=UTF-8");
 
-    include_once $_SERVER['DOCUMENT_ROOT'].'/php/db_connect.php';
+    include_once '../../php/db_connect.php';
 
     $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
     $errorList = array();

@@ -1,0 +1,16 @@
+.new-question {
+
+    &__textArea {
+        flex: 1;
+        text-align: center;
+    }
+
+    &__textBox{
+        flex: 1;
+        text-align: center;
+    }
+
+    &__submit {
+        cursor: pointer;
+    }
+}
