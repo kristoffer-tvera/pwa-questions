@@ -1,3 +1,24 @@
+
+// Flasher next-knappen når noen trykker på et svar
+var flashButton = document.querySelector(".bottomBtn__next")
+var flashButtonOne = document.getElementById('choiceOne')
+var flashButtonTwo = document.getElementById('choiceTwo')
+
+flashButtonOne.addEventListener('click', function (e) {
+    flashButton.style.backgroundColor = "#f7fff9";
+    setTimeout(function () {
+        flashButton.style.backgroundColor = "#5EFC8D";
+    }, 1500);
+});
+
+flashButtonTwo.addEventListener('click', function (e) {
+    flashButton.style.backgroundColor = "#f7fff9";
+    setTimeout(function () {
+        flashButton.style.backgroundColor = "#5EFC8D";
+    }, 1500);
+});
+
+
 // Skjuler menyen ved oppstart
 function hideMenu() {
     document.getElementById('mainMenu').style.display = 'none';
@@ -8,10 +29,10 @@ function openMenu() {
     document.getElementById('mainMenu').style.display = 'flex';
 }
 
-function GetRandomQuestion(){
+function GetRandomQuestion() {
     var xhr = new XMLHttpRequest(),
-    method = 'GET',
-    url = './api/questions/read.php';
+        method = 'GET',
+        url = './api/questions/read.php';
 
     xhr.open(method, url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
@@ -24,12 +45,12 @@ function GetRandomQuestion(){
     xhr.send();
 }
 
-function GetRandomQuestionFromCategory(category){
- var xhr = new XMLHttpRequest(),
-    method = 'GET',
-    url = './api/questions/read_by_category.php';
-    url += '?category='+category;
-    
+function GetRandomQuestionFromCategory(category) {
+    var xhr = new XMLHttpRequest(),
+        method = 'GET',
+        url = './api/questions/read_by_category.php';
+    url += '?category=' + category;
+
     xhr.open(method, url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
@@ -44,24 +65,24 @@ function GetRandomQuestionFromCategory(category){
 var urlParams; //https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
 (window.onpopstate = function () {
     var match,
-        pl     = /\+/g,  // Regex for replacing addition symbol with a space
+        pl = /\+/g,  // Regex for replacing addition symbol with a space
         search = /([^&=]+)=?([^&]*)/g,
         decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
-        query  = window.location.search.substring(1);
+        query = window.location.search.substring(1);
 
     urlParams = {};
     while (match = search.exec(query))
-       urlParams[decode(match[1])] = decode(match[2]);
+        urlParams[decode(match[1])] = decode(match[2]);
 })();
 
 //Under sjekker vi om det ligger noe i url'en ( det er slik vi overfører data fra en side til den andre via javascript/html)
-if(urlParams && urlParams.hasOwnProperty("category")){
+if (urlParams && urlParams.hasOwnProperty("category")) {
     GetRandomQuestionFromCategory(urlParams.category);
 } else {
     GetRandomQuestion();
 }
 
-function RenderQuestionAndAddEventListeners(response){
+function RenderQuestionAndAddEventListeners(response) {
     // Laster inn API-calls
     var id = response.id;
     var altOne = response.first_alternative;
@@ -70,11 +91,17 @@ function RenderQuestionAndAddEventListeners(response){
     var altTwoScore = parseInt(response.second_alternative_score);
     var category = response.category;
 
+
+    // Kalkulerer antall stemmer og gir tilbake en %-andel. Hvis verdien er "NaN", altså ingen stemmer, så gir den tilbake 0%
     var altTotal = altOneScore + altTwoScore
 
-    var altOnePercentage = (altOneScore / altTotal) * 100;
+    var altOnePercentage = 0;
 
-    var altTwoPercentage = (altTwoScore / altTotal) * 100;
+    altOnePercentage = (altOneScore / altTotal) * 100 || 0;
+
+    var altTwoPercentage = 0;
+
+    altTwoPercentage = (altTwoScore / altTotal) * 100 || 0;
 
 
     // Elementene som blir vist til brukere
