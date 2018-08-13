@@ -37,6 +37,8 @@
     &__next {
         @include bottomBtn();
         background-color: #5EFC8D;
+        transition: 1s ease-in-out;
+        //box-shadow: 0 0 30px #fff;
     }
 
     &__menu {
