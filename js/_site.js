@@ -93,9 +93,13 @@ function RenderQuestionAndAddEventListeners(response) {
 
     var altTotal = altOneScore + altTwoScore
 
-    var altOnePercentage = (altOneScore / altTotal) * 100;
+    var altOnePercentage = 0;
 
-    var altTwoPercentage = (altTwoScore / altTotal) * 100;
+    altOnePercentage = (altOneScore / altTotal) * 100 || 0;
+
+    var altTwoPercentage = 0;
+
+    altTwoPercentage = (altTwoScore / altTotal) * 100 || 0;
 
 
     // Elementene som blir vist til brukere
