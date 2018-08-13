@@ -91,6 +91,8 @@ function RenderQuestionAndAddEventListeners(response) {
     var altTwoScore = parseInt(response.second_alternative_score);
     var category = response.category;
 
+
+    // Kalkulerer antall stemmer og gir tilbake en %-andel. Hvis verdien er "NaN", altså ingen stemmer, så gir den tilbake 0%
     var altTotal = altOneScore + altTwoScore
 
     var altOnePercentage = 0;
